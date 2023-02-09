@@ -1,9 +1,9 @@
-function NumberGrid({placeValues, digitArray, digitTimes, digitVal, style}) {
+function NumberGrid({placeValues, digitArray, digitTimes, digitVal, style, classNme}) {
 	return (
-		<div className='upper-grid' style={{gridTemplateColumns: style}}>
+		<div className={classNme} style={{gridTemplateColumns: style}}>
 			
 			{placeValues.map(pv => (
-				<p>{pv}s</p>
+				<div><p>{pv}s</p></div>
 			))}
 
 			{digitArray.map(digit => (

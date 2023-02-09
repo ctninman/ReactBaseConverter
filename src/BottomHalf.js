@@ -3,7 +3,7 @@ import SelectNumberForm from "./SelectNumberForm"
 import BaseForm from './BaseForm'
 import NumberGrid from "./NumberGrid"
 
-function BottomHalf ({theNumber, setTheNumber, convertedNumber, placeValues, setPlaceValues, currentBase, setCurrentBase, selectBaseForm, setSelectBaseForm}) {
+function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, placeValues, setPlaceValues, currentBase, setCurrentBase, selectBaseForm, setSelectBaseForm}) {
 
 	// const [changeBase, setChangeBase] = useState(false)
 	const [changeNumInBase, setChangeNumInBase] = useState(false)
@@ -30,7 +30,7 @@ function BottomHalf ({theNumber, setTheNumber, convertedNumber, placeValues, set
 	useEffect (() => {
 		let digitArray = []
 		for (let i = 0; i < placeValues.length; i++) {
-			digitArray.push(convertGridNumStr[i] + ' x ' + placeValues[i])
+			digitArray.push(digitsTo64.indexOf(convertGridNumStr[i]) + ' x ' + placeValues[i])
 		}
 		setConvertDigitBreakdown(digitArray)
 	}, [convertGridStyle, convertGridNumStr])
@@ -38,55 +38,52 @@ function BottomHalf ({theNumber, setTheNumber, convertedNumber, placeValues, set
 	useEffect (() => {
 		let valuesArray = []
 		for (let i = 0; i < placeValues.length; i++) {
-			valuesArray.push(convertGridNumStr[i] * placeValues[i])
+			valuesArray.push(digitsTo64.indexOf(convertGridNumStr[i]) * placeValues[i])
 		}
 		setConvertDigitValues(valuesArray)
 	}, [convertDigitBreakdown])
-
-
 	
 
 	return (
 
 		<div className='bottom-half'>
-			<div className='upper-third'>
-				<div>
+				<div className='base-button-div'>
 					<button onClick={() => setSelectBaseForm(true)}>Change base</button>
 					{/* {changeBase ? <div>Change base</div> : null} */}
 				</div>
-				<div>Base {currentBase}</div>
-				<button onClick={() => setChangeNumInBase(true)}>Enter a number</button>
-				{changeNumInBase 
-						? 
-					<SelectNumberForm 
-						setTheNumber={setTheNumber} 
-						setChangeNumInBase={setChangeNumInBase}/> 
-						: 
-					null
-				}
+				<div className='num-button-div'>
+					<button onClick={() => setChangeNumInBase(true)}>Enter a number</button>
+					</div>
+			<div className='upper-third'>
+					<div><h1>Base {currentBase}</h1></div>
 			</div>
 			{selectBaseForm 
 					? 
-				<BaseForm 
+					<BaseForm 
 					setSelectBaseForm={setSelectBaseForm} 
 					setCurrentBase={setCurrentBase}
-				/> 
+					/> 
 					: 
-				null
-			}
+					null
+				}
+				{changeNumInBase 
+						? 
+						<SelectNumberForm 
+						setTheNumber={setTheNumber} 
+						setChangeNumInBase={setChangeNumInBase}/> 
+						: 
+						null
+					}
 			<NumberGrid 
 				placeValues={placeValues}
 				digitArray={convertGridNumStr}
 				digitTimes={convertDigitBreakdown}
 				digitVal={convertDigitValues}
-				style={convertGridStyle}/>
+				style={convertGridStyle}
+				digitsTo64={digitsTo64}
+				classNme='lower-grid'/>
 			
-			<div className='minus-num-plus'>
-				<div onClick={() => setTheNumber(theNumber - 1)}><h2>-</h2></div>
-				<div onClick={() => console.log(convertedNumber)}><h1>{theNumber * 2}</h1></div>
-				<div onClick={() => setTheNumber(theNumber + 1)}><h2>+</h2></div>
 
-			</div>
 		</div>
 	)
 }

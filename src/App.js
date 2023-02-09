@@ -7,6 +7,8 @@ import './index.css'
 
 function App() {
 
+	const digitsTo64 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/'
+
 	const [ theNumber, setTheNumber ] = useState(1)
 	const [ placeValues, setPlaceValues ] = useState([])
 	const [ baseTenPlaceValues, setBaseTenPlaceValues ] = useState([1])
@@ -18,7 +20,7 @@ function App() {
 		setPlaceValues(determinePlaceValues(theNumber, currentBase))
 		setBaseTenPlaceValues(determinePlaceValues(theNumber, 10))
 		// setConvertedNumber(theNumber, placeValues)
-	}, [theNumber])
+	}, [theNumber, currentBase])
 
 	useEffect(() => {
 		setConvertedNumber(numToNewBase(theNumber, placeValues))
@@ -49,20 +51,22 @@ function App() {
 
 		for (let i = 0; i < listPlaceVal.length; i++) {
 			
-			let digit;
+			let digit, num;
 			if (remainingBalance < parseInt(placeValues[i])) {
-				digit = 0
+				num = 0
+				digit = '0'
 			} else {
-				digit = Math.floor(remainingBalance / parseInt(placeValues[i]))
+				num = Math.floor(remainingBalance / parseInt(placeValues[i]))
+				digit = digitsTo64[num]
 			}
 			listNewSystemValues.push(digit)
-			remainingBalance -= digit * parseInt(placeValues[i])
+			remainingBalance -= num * parseInt(placeValues[i])
 		}
 
-		let listAsStrings = listNewSystemValues.map(String)
+		// let listAsStrings = listNewSystemValues.map(String)
 		
 		
-		return listAsStrings.join('')
+		return listNewSystemValues.join('')
 	}
 
 	// console.log(numToNewBase(200, [125,25,5,1]))
@@ -86,7 +90,8 @@ function App() {
 				setPlaceValues={setPlaceValues}
 				selectBaseForm={selectBaseForm}
 				setSelectBaseForm={setSelectBaseForm}
-				determinePlaceValues={determinePlaceValues}/>
+				determinePlaceValues={determinePlaceValues}
+				digitsTo64={digitsTo64}/>
 		
 		</div>
 	)

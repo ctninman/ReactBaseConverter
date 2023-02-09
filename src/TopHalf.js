@@ -28,7 +28,7 @@ function TopHalf ({theNumber, setTheNumber, baseTenPlaceValues, setBaseTenPlaceV
 			digitArray.push(gridNumStr[i] + ' x ' + baseTenPlaceValues[i])
 		}
 		setDigitBreakdown(digitArray)
-	}, [gridStyle, gridNumStr])
+	}, [gridStyle, gridNumStr, baseTenPlaceValues])
 
 	useEffect (() => {
 		let valuesArray = []
@@ -42,12 +42,20 @@ function TopHalf ({theNumber, setTheNumber, baseTenPlaceValues, setBaseTenPlaceV
 	
 
 	return (
-
+		
 		<div className='top-half'>
+			<div>
+
+				<h1>Base 10</h1>
+			</div>
 			<div className='minus-num-plus'>
-				<button onClick={() => setTheNumber(theNumber - 1)}>-</button>
-				<h1>{theNumber}</h1>
-				<button onClick={() => setTheNumber(theNumber + 1)}>+</button>
+				<div className='minus-button'>
+					<button onClick={() => setTheNumber(theNumber - 1)}>➖</button>
+				</div>
+				{/* <div><h1>{theNumber}</h1></div> */}
+				<div className='plus-button'>
+					<button onClick={() => setTheNumber(theNumber + 1)}>➕</button>
+				</div>
 			</div>
 
 			<NumberGrid 
@@ -55,7 +63,8 @@ function TopHalf ({theNumber, setTheNumber, baseTenPlaceValues, setBaseTenPlaceV
 				digitArray={gridNumStr}
 				digitTimes={digitBreakdown}
 				digitVal={digitValues}
-				style={gridStyle}/>
+				style={gridStyle}
+				classNme='upper-grid'/>
 
 			{/* <div className='upper-grid' style={{gridTemplateColumns: gridStyle}}>
 				

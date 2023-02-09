@@ -15,7 +15,7 @@ function BaseForm ({selectBaseForm, setSelectBaseForm, setCurrentBase}) {
 	return (
 		<div className='select-base-form'>
 			{rangeOfBases.map(base => (
-				<p onClick={() => handleBaseSelect(base)}>{base}</p>
+				<div><p onClick={() => handleBaseSelect(base)}>{base}</p></div>
 			))}
 			<button onClick={() => setSelectBaseForm(false)}>X</button>
 		</div>
