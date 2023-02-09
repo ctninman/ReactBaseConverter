@@ -1,12 +1,13 @@
 import { useState } from 'react';
 
-function SelectNumberForm ({setTheNumber}) {
+function SelectNumberForm ({setTheNumber, setChangeNumInBase}) {
 
 	const [ numForm, setNumForm ] = useState(0)
 
 	function handleFormSubmit (event) {
 		event.preventDefault()
 		setTheNumber(parseInt(numForm))
+		setChangeNumInBase(false)
 	}
 
 	function setSearchNum (event) {
