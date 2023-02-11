@@ -1,17 +1,23 @@
 import { useState } from 'react';
 
-function SelectNumberForm ({setTheNumber, setChangeNumInBase}) {
+function SelectNumberForm ({setTheNumber, setChangeNumInBase, theNumber, verifyValidNumber}) {
 
-	const [ numForm, setNumForm ] = useState(1)
+	const [ numForm, setNumForm ] = useState(theNumber)
 
 	function handleFormSubmit (event) {
 		event.preventDefault()
-		setTheNumber(parseInt(numForm))
-		setChangeNumInBase(false)
+		let isValid = verifyValidNumber(numForm)
+		if (isValid) {
+			setTheNumber(parseInt(numForm))
+			setChangeNumInBase(false)
+		} else {
+			alert ('please enter a number between 1 and 10,000')
+		}
 	}
 
 	function setSearchNum (event) {
-		setNumForm(event.target.value)
+		let submissionNoCommas = event.target.value.replaceAll(/\D/g, '')
+		setNumForm(submissionNoCommas)
 	}
 
 	return (

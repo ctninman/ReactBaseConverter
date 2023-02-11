@@ -2,8 +2,9 @@ import { useState, useEffect } from "react"
 import SelectNumberForm from "./SelectNumberForm"
 import BaseForm from './BaseForm'
 import NumberGrid from "./NumberGrid"
+import BaseExplanation from "./BaseExplanation"
 
-function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, placeValues, setPlaceValues, currentBase, setCurrentBase, selectBaseForm, setSelectBaseForm}) {
+function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, placeValues, setPlaceValues, currentBase, setCurrentBase, selectBaseForm, setSelectBaseForm, verifyValidNumber, lastClickType, setLastClickType}) {
 
 	// const [changeBase, setChangeBase] = useState(false)
 	const [changeNumInBase, setChangeNumInBase] = useState(false)
@@ -12,6 +13,7 @@ function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, plac
 	const [convertDigitBreakdown, setConvertDigitBreakdown] = useState([])
 	const [convertDigitValues, setConvertDigitValues] = useState([])
 	const [convertGridNumStr, setConvertGridNumStr] = useState([])
+	const [explainBase, setExplainBase] = useState(false)
 
 	useEffect (() => {
 		setConvertGridNumStr(convertedNumber.toString().split(''))
@@ -19,13 +21,13 @@ function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, plac
 
 	useEffect (() => {
 		let styleString = ''
-		let extraColumn = '8vw '
+		let extraColumn = '6.5vw '
 		for (let i = 0; i < placeValues.length; i++) {
 			styleString = styleString.concat(extraColumn)
 			console.log(styleString)
 		}
 		setConvertGridStyle(styleString)
-	}, [convertGridNumStr])
+	}, [convertGridNumStr, placeValues])
 
 	useEffect (() => {
 		let digitArray = []
@@ -33,7 +35,7 @@ function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, plac
 			digitArray.push(digitsTo64.indexOf(convertGridNumStr[i]) + ' x ' + placeValues[i])
 		}
 		setConvertDigitBreakdown(digitArray)
-	}, [convertGridStyle, convertGridNumStr])
+	}, [convertGridStyle, convertGridNumStr, digitsTo64, placeValues])
 
 	useEffect (() => {
 		let valuesArray = []
@@ -41,21 +43,37 @@ function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, plac
 			valuesArray.push(digitsTo64.indexOf(convertGridNumStr[i]) * placeValues[i])
 		}
 		setConvertDigitValues(valuesArray)
-	}, [convertDigitBreakdown])
+	}, [convertDigitBreakdown, digitsTo64, placeValues, convertGridNumStr])
 	
+	function handleBaseChange () {
+		setSelectBaseForm(true)
+		setLastClickType('base-change')
+	}
+
+	function handleNumSelect () {
+		setChangeNumInBase(true)
+		setLastClickType('num-change')
+	}
 
 	return (
 
 		<div className='bottom-half'>
 				<div className='base-button-div'>
-					<button onClick={() => setSelectBaseForm(true)}>Change base</button>
+					<button onClick={handleBaseChange}>Change base</button>
 					{/* {changeBase ? <div>Change base</div> : null} */}
 				</div>
 				<div className='num-button-div'>
-					<button onClick={() => setChangeNumInBase(true)}>Enter a number</button>
+					<button onClick={handleNumSelect}>Enter a number</button>
 					</div>
 			<div className='upper-third'>
-					<div><h1>Base {currentBase}</h1></div>
+			<div className='base-ten-header'>
+					<h1 className='base-header'>Base {currentBase}</h1>
+					<div className='hover-explain' onMouseEnter={() => setExplainBase(true)} onMouseLeave={() => setExplainBase(false)}>
+						💡
+					</div>
+					{explainBase ? <BaseExplanation digitsTo64={digitsTo64} base={currentBase} /> : null}
+				</div>
+					{/* <div><h1 className='base-header'>Base {currentBase}</h1></div> */}
 			</div>
 			{selectBaseForm 
 					? 
@@ -69,8 +87,10 @@ function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, plac
 				{changeNumInBase 
 						? 
 						<SelectNumberForm 
+						theNumber={theNumber}
 						setTheNumber={setTheNumber} 
-						setChangeNumInBase={setChangeNumInBase}/> 
+						setChangeNumInBase={setChangeNumInBase}
+						verifyValidNumber={verifyValidNumber}/> 
 						: 
 						null
 					}
@@ -81,7 +101,10 @@ function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, plac
 				digitVal={convertDigitValues}
 				style={convertGridStyle}
 				digitsTo64={digitsTo64}
-				classNme='lower-grid'/>
+				classNme='lower-grid'
+				lastClickType={lastClickType}
+				setLastClickType={setLastClickType}
+				currentBase={currentBase}/>
 			
 
 		</div>

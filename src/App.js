@@ -15,6 +15,7 @@ function App() {
 	const [currentBase, setCurrentBase] = useState(2)
 	const [selectBaseForm, setSelectBaseForm] = useState(false)
 	const [convertedNumber, setConvertedNumber] = useState(1)
+	const [lastClickType, setLastClickType] = useState(null)
 
 	useEffect (() => {
 		setPlaceValues(determinePlaceValues(theNumber, currentBase))
@@ -62,15 +63,14 @@ function App() {
 			listNewSystemValues.push(digit)
 			remainingBalance -= num * parseInt(placeValues[i])
 		}
-
-		// let listAsStrings = listNewSystemValues.map(String)
-		
-		
 		return listNewSystemValues.join('')
 	}
 
-	// console.log(numToNewBase(200, [125,25,5,1]))
-
+	function verifyValidNumber (num) {
+		if (num > 10000) {return false}
+		else if (num <= 0) {return false}
+		else return true
+	}
 
 	return (
 		<div className='main-app'>	
@@ -78,8 +78,12 @@ function App() {
 			<TopHalf 
 				theNumber={theNumber} 
 				setTheNumber={setTheNumber}
+				digitsTo64={digitsTo64}
 				baseTenPlaceValues={baseTenPlaceValues}
-				setBaseTenPlaceValues={setBaseTenPlaceValues}/>
+				setBaseTenPlaceValues={setBaseTenPlaceValues}
+				verifyValidNumber={verifyValidNumber}
+				lastClickType={lastClickType}
+				setLastClickType={setLastClickType}/>
 			<BottomHalf 
 				theNumber={theNumber} 
 				setTheNumber={setTheNumber}
@@ -91,7 +95,11 @@ function App() {
 				selectBaseForm={selectBaseForm}
 				setSelectBaseForm={setSelectBaseForm}
 				determinePlaceValues={determinePlaceValues}
-				digitsTo64={digitsTo64}/>
+				digitsTo64={digitsTo64}
+				verifyValidNumber={verifyValidNumber}
+				lastClickType={lastClickType}
+				setLastClickType={setLastClickType}
+/>
 		
 		</div>
 	)

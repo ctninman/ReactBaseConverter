@@ -1,4 +1,6 @@
-function NumberGrid({placeValues, digitArray, digitTimes, digitVal, style, classNme}) {
+import Digit from "./Digit"
+
+function NumberGrid({placeValues, digitArray, digitTimes, digitVal, style, classNme, currentBase, lastClickType, setLastClickType}) {
 	return (
 		<div className={classNme} style={{gridTemplateColumns: style}}>
 			
@@ -7,7 +9,7 @@ function NumberGrid({placeValues, digitArray, digitTimes, digitVal, style, class
 			))}
 
 			{digitArray.map(digit => (
-				<h1>{digit}</h1>
+				<Digit digit={digit} lastClickType={lastClickType} currentBase={currentBase}/>
 			))}
 
 			{digitTimes.map(multiple => (
