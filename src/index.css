@@ -371,7 +371,7 @@ body {
   
   95% {
     /* transform: scale(1); */
-    transform:translateX(-7vw) scale(2, 1);
+    transform:translateX(-7vw);
 		opacity: .7;
   }
   

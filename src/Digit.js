@@ -1,5 +1,5 @@
 
-import {useState, useEffect} from 'react'
+// import {useState, useEffect} from 'react'
 
 function Digit ({digit, currentBase, lastClickType}) {
 
@@ -8,7 +8,7 @@ function Digit ({digit, currentBase, lastClickType}) {
 	// 	setPreviousDigit(digit)
 	// }, [digit] )
 
-	const [ghostDigit, setGhostDigit] = useState(null) 
+	// const [ghostDigit, setGhostDigit] = useState(null) 
 
 	return (
 		<>
