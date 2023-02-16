@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import TopHalf from './TopHalf'
 import BottomHalf from './BottomHalf';
 import './index.css'
+import Menubar from './Menubar';
 
 function App() {
 
@@ -74,7 +75,7 @@ function App() {
 
 	return (
 		<div className='main-app'>	
-			
+			<Menubar />
 			<TopHalf 
 				theNumber={theNumber} 
 				setTheNumber={setTheNumber}

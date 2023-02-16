@@ -21,13 +21,18 @@ function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, plac
 
 	useEffect (() => {
 		let styleString = ''
-		let extraColumn = '6.5vw '
+		let extraColumn;
+		if (currentBase === 2) {
+			extraColumn = '6.5vw '
+		} else {
+			extraColumn = '8vw '
+		}
 		for (let i = 0; i < placeValues.length; i++) {
 			styleString = styleString.concat(extraColumn)
 			console.log(styleString)
 		}
 		setConvertGridStyle(styleString)
-	}, [convertGridNumStr, placeValues])
+	}, [convertGridNumStr, placeValues, currentBase])
 
 	useEffect (() => {
 		let digitArray = []
@@ -101,7 +106,7 @@ function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, plac
 				digitVal={convertDigitValues}
 				style={convertGridStyle}
 				digitsTo64={digitsTo64}
-				classNme='lower-grid'
+				classNme={'lower-grid'}
 				lastClickType={lastClickType}
 				setLastClickType={setLastClickType}
 				currentBase={currentBase}/>

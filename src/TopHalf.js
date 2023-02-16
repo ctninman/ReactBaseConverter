@@ -5,9 +5,9 @@ import BaseExplanation from './BaseExplanation'
 function TopHalf ({theNumber, setTheNumber, baseTenPlaceValues, setBaseTenPlaceValues, digitsTo64, verifyValidNumber, lastClickType, setLastClickType}) {
 
 	const [gridStyle, setGridStyle] = useState('')
-	const [digitBreakdown, setDigitBreakdown] = useState([])
-	const [digitValues, setDigitValues] = useState([])
-	const [gridNumStr, setGridNumStr] = useState([])
+	const [digitBreakdown, setDigitBreakdown] = useState(['1 x 1'])
+	const [digitValues, setDigitValues] = useState([1])
+	const [gridNumStr, setGridNumStr] = useState(['1'])
 	const [explainBaseTen, setExplainBaseTen] = useState(false)
 
 	useEffect (() => {

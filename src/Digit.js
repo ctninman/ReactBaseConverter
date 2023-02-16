@@ -3,6 +3,8 @@
 
 function Digit ({digit, currentBase, lastClickType}) {
 
+	const allDigits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/'
+
 	// useEffect (() => {
 	// 	console.log('change', digit)
 	// 	setPreviousDigit(digit)
@@ -18,7 +20,7 @@ function Digit ({digit, currentBase, lastClickType}) {
 					: 
 				null
 			}
-			{lastClickType === 'minus' && digit  === (currentBase - 1).toString() 
+			{lastClickType === 'minus' && digit  === allDigits[(currentBase - 1).toString()] 
 					? 
 				<h1 className='subtract-pv'>{digit}</h1>
 					: 
@@ -26,7 +28,7 @@ function Digit ({digit, currentBase, lastClickType}) {
 			}
 			{	(lastClickType !== 'plus' && lastClickType  !== 'minus') || 
 				(lastClickType === 'plus' && digit !== '0') || 
-				(lastClickType === 'minus' && digit !== (currentBase - 1).toString()) 
+				(lastClickType === 'minus' && digit !== allDigits[(currentBase - 1).toString()])
 					? 
 				<h1>{digit}</h1> 
 					: 

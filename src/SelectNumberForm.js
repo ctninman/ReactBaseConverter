@@ -24,8 +24,8 @@ function SelectNumberForm ({setTheNumber, setChangeNumInBase, theNumber, verifyV
 		<div className='number-form'>
 			<h2>Select a number from 1 to 10,000</h2>
 			<form onSubmit={handleFormSubmit}>
-				<input type="text" name="number" value={numForm} onChange={setSearchNum}/>
-				<input type="submit" value="CONVERT!" />
+				<input className='number-form-input' type="text" name="number" value={numForm} onChange={setSearchNum}/>
+				<input className='number-form-submit'type="submit" value="CONVERT!" />
 			</form>
 		</div>
 	)
