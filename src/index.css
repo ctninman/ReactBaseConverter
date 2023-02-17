@@ -29,7 +29,8 @@ body {
 	width: 20vw;
 	/* height: 10vw; */
 	background-color: #F04B1F;
-	font-size: 2.4vw;
+	color: white;
+	font-size: 2.3vw;
 	border-radius: 5px;
 	text-align: center;
 	cursor: pointer;
@@ -193,6 +194,8 @@ body {
 
 .minus-button-div button {
 	background-color: #F04B1F;
+	width: 10vh;
+	height: 10vh;
 	font-size: 8vh;
 	border-radius: 50%;
 	text-align: center;
@@ -267,7 +270,8 @@ body {
 	width: 20vw;
 	/* height: 10vw; */
 	background-color: #F04B1F;
-	font-size: 2.4vw;
+	color:white;
+	font-size: 2.3vw;
 	border-radius: 5px;
 	text-align: center;
 	cursor: pointer;
@@ -340,6 +344,8 @@ body {
 
 .plus-button-div button {
 	cursor: pointer;
+	width: 10vh;
+	height: 10vh;
 	background-color: #F04B1F;
 	font-size: 8vh;
 	border-radius: 50%;
