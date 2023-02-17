@@ -184,9 +184,9 @@ body {
 .minus-button-div {
 	position: absolute;
 	left: 5vw;
-	width: 10vh;
-	height: 10vh;
-	bottom: -5vh;
+	/* width: 10vh; */
+	/* height: 10vh; */
+	bottom: -6.5vh;
 	z-index: 3;
 	align-content: center;
 }
@@ -330,10 +330,10 @@ body {
 
 .plus-button-div {
 	position: absolute;
-	width: 10vh;
-	height: 10vh;
+	/* width: 10vh;
+	height: 10vh; */
 	right: 5vw;
-	bottom: -5vh;
+	bottom: -6.5vh;
 	z-index: 3;
 	align-content: center;
 }
