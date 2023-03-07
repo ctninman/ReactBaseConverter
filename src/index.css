@@ -183,22 +183,31 @@ body {
 }
 
 .minus-button-div {
+	/* position: absolute;
+	width: 10vh;
+	height: 10vh;
+	right: 5vw;
+	bottom: -5vh;
+	z-index: 3;
+	border-radius: 50%;
+	align-content: center; */
+	justify-content: center;
 	position: absolute;
 	left: 5vw;
-	/* width: 10vh; */
-	/* height: 10vh; */
-	bottom: -6.5vh;
+	width: 10vh;
+	height: 10vh;
+	bottom: -5vh;
 	z-index: 3;
 	align-content: center;
 }
 
 .minus-button-div button {
-	background-color: #F04B1F;
+	/* background-color: #F04B1F;
 	width: 10vh;
 	height: 10vh;
 	font-size: 8vh;
 	border-radius: 50%;
-	text-align: center;
+	text-align: center; */
 	cursor: pointer;
 }
 
@@ -348,9 +357,9 @@ body {
 	cursor: pointer;
 	/* width: 10vh;
 	height: 10vh; */
-	background-color: #F04B1F;
+	/* background-color: #F04B1F;
 	font-size: 6vh;
-	border-radius: 50%;
+	border-radius: 50%; */
 }
 
 /* .minus-num-plus {
