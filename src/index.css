@@ -334,8 +334,9 @@ body {
 
 .plus-button-div {
 	position: absolute;
-	/* width: 10vh;
-	height: 10vh; */
+	width: 10vh;
+	height: 10vh;
+	
 	right: 5vw;
 	bottom: -6.5vh;
 	z-index: 3;

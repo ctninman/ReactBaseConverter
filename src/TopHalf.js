@@ -19,7 +19,6 @@ function TopHalf ({theNumber, setTheNumber, baseTenPlaceValues, setBaseTenPlaceV
 		let extraColumn = '8vw '
 		for (let i = 0; i < gridNumStr.length; i++) {
 			styleString = styleString.concat(extraColumn)
-			console.log(styleString)
 		}
 		setGridStyle(styleString)
 	}, [gridNumStr])

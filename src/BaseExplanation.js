@@ -14,7 +14,6 @@ function BaseExplanation({base, digitsTo64}) {
 		while (i < baseTenText.length) {
 			const showTimeout = setTimeout(() => {
 				setShowText(baseTenText.slice(0,i + 1))
-				console.log(i)
 				setI(i + 1)
 			}, 75)
 			

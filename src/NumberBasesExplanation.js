@@ -17,7 +17,6 @@ const NumberBasesExplanation = ({setShowBaseTutorial, description}) => {
 			let currentBreakdownShow = description.breakdown[baseExpIndex]
 			const showTimeout = setTimeout(() => {
 				setShowBaseText(currentBreakdownShow.slice(0,j + 1))
-				console.log(j)
 				setJ(j + 1)
 			}, 55)
 			

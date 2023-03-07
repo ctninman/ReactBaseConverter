@@ -1,6 +1,6 @@
-import {useState} from 'react'
+// import {useState} from 'react'
 import Digit from "./Digit"
-import PlaceValueExplanation from './PlaceValueExplanation'
+// import PlaceValueExplanation from './PlaceValueExplanation'
 
 function NumberGrid({placeValues, digitArray, digitTimes, digitVal, style, classNme, currentBase, lastClickType, setLastClickType}) {
 	

@@ -16,7 +16,6 @@ const PlaceValueExplanation = ({currentBase}) => {
 		while (j < whatIsABase.title.length) {
 			const showTimeout = setTimeout(() => {
 				setShowPVText(whatIsABase.title.slice(0,j + 1))
-				console.log(j)
 				setJ(j + 1)
 			}, 75)
 			

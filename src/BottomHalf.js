@@ -29,7 +29,6 @@ function BottomHalf ({digitsTo64, theNumber, setTheNumber, convertedNumber, plac
 		}
 		for (let i = 0; i < placeValues.length; i++) {
 			styleString = styleString.concat(extraColumn)
-			console.log(styleString)
 		}
 		setConvertGridStyle(styleString)
 	}, [convertGridNumStr, placeValues, currentBase])
