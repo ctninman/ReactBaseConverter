@@ -336,19 +336,20 @@ body {
 	position: absolute;
 	width: 10vh;
 	height: 10vh;
-	
 	right: 5vw;
-	bottom: -6.5vh;
+	bottom: -5vh;
 	z-index: 3;
+	border-radius: 50%;
 	align-content: center;
+	justify-content: center;
 }
 
 .plus-button-div button {
 	cursor: pointer;
-	width: 10vh;
-	height: 10vh;
+	/* width: 10vh;
+	height: 10vh; */
 	background-color: #F04B1F;
-	font-size: 8vh;
+	font-size: 6vh;
 	border-radius: 50%;
 }
 
