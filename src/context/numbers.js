@@ -1,21 +1,21 @@
-import { createContext, useState } from "react";
+// import { createContext, useState } from "react";
 
-const NumbersContext = createContext();
+// const NumbersContext = createContext();
 
-function Provider({children}) {
-	const [testCount, setTestCount] = useState(5);
+// function Provider({children}) {
+// 	const [testCount, setTestCount] = useState(5);
 
-	const testValueToShare = {
-		testCount,
-		incrementTestCount: () => {
-			setTestCount(testCount + 1)
-		}
-	}
+// 	const testValueToShare = {
+// 		testCount,
+// 		incrementTestCount: () => {
+// 			setTestCount(testCount + 1)
+// 		}
+// 	}
 
-	return <NumbersContext.Provider value={testValueToShare}>
-		{children}
-	</NumbersContext.Provider>
-}
+// 	return <NumbersContext.Provider value={testValueToShare}>
+// 		{children}
+// 	</NumbersContext.Provider>
+// }
 
-export {Provider};
-export default NumbersContext
+// export {Provider};
+// export default NumbersContext

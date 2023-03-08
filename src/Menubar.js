@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import { whatIsABase, commonBaseSystems, howToConvert } from './descriptions';
 import NumberBasesExplanation from './NumberBasesExplanation';
 

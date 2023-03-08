@@ -155,6 +155,11 @@ body {
 	cursor: default;
 }
 
+.lower-grid p:hover {
+	transform: scale(1.8);
+	transition: 1s ease-in-out;
+}
+
 .main-app {
 	background-color: brown;
 }
@@ -475,6 +480,11 @@ body {
 	text-align: center;
 	background-color: white;
 	cursor: default;
+}
+
+.upper-grid p:hover {
+	transform: scale(1.8);
+	transition: 1s ease-in-out;
 }
 
 .upper-third {

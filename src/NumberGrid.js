@@ -20,7 +20,7 @@ function NumberGrid({placeValues, digitArray, digitTimes, digitVal, style, class
 						// onMouseEnter={() => setPlaceValueExplanation(true)} 
 						// onMouseLeave={() => setPlaceValueExplanation(false)}
 					>	
-						{pv}
+						{pv}s
 						{/* {placeValueExplanation ? <PlaceValueExplanation currentBase={currentBase}/> : null} */}
 					</p>
 					
